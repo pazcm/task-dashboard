@@ -1,0 +1,13 @@
+.sidebar {
+  background-color: rgb(125, 240, 107);
+  padding: 1.5rem;
+}
+
+.sidebar-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  list-style: none;
+  padding: 0;
+}
