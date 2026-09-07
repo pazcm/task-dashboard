@@ -58,6 +58,17 @@
 	cursor: pointer;
 }
 
+.task-delete-button {
+	border: 1px solid #e4b5ab;
+	border-radius: 6px;
+	padding: 0.35rem 0.6rem;
+	color: #934333;
+	background: #fff;
+	font: inherit;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+
 .task-item h3 {
 	margin: 0 0 0.25rem;
 	color: #24352a;
