@@ -1,0 +1,91 @@
+.modal-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 10;
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+	background: rgb(21 35 27 / 58%);
+}
+
+.task-modal {
+	width: min(100%, 500px);
+	padding: 1.5rem;
+	border-radius: 10px;
+	background: #fffdf8;
+	box-shadow: 0 20px 60px rgb(19 35 25 / 25%);
+}
+
+.modal-header,
+.modal-actions,
+.form-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.modal-header h2 {
+	margin: 0;
+}
+
+.modal-eyebrow {
+	margin-bottom: 0.25rem;
+	color: #1f6f5b;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.modal-close {
+	border: 0;
+	background: transparent;
+	color: #637067;
+	font-size: 1.75rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.task-modal form {
+	display: grid;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.task-modal label {
+	display: grid;
+	gap: 0.4rem;
+	color: #35463a;
+	font-size: 0.85rem;
+	font-weight: 700;
+}
+
+.task-modal input,
+.task-modal textarea,
+.task-modal select {
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #c8d2c9;
+	border-radius: 6px;
+	padding: 0.7rem;
+	color: #24352a;
+	background: #fff;
+	font: inherit;
+	font-size: 0.95rem;
+}
+
+.task-modal textarea { resize: vertical; }
+.form-row { align-items: flex-start; }
+.form-row label { flex: 1; }
+
+.modal-actions { justify-content: flex-end; margin-top: 0.5rem; }
+.button-secondary,
+.button-primary { border: 0; border-radius: 6px; padding: 0.7rem 1rem; font: inherit; font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+.button-secondary { color: #35463a; background: #e8eee9; }
+.button-primary { color: #fff; background: #1f6f5b; }
+
+@media (max-width: 540px) {
+	.form-row { flex-direction: column; }
+	.form-row label { width: 100%; }
+}
