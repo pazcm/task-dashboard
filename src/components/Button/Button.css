@@ -1,0 +1,15 @@
+.new-task-button {
+	border: 0;
+	border-radius: 8px;
+	padding: 0.7rem 1rem;
+	color: #fff;
+	background: #1f6f5b;
+	font: inherit;
+	font-size: 0.9rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.new-task-button:hover {
+	background: #185846;
+}

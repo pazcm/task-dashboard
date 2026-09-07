@@ -9,7 +9,7 @@ function Sidebar() {
             <a href="/">Dashboard</a>
           </li>
           <li>
-            <a href="/projects">Projects</a>
+            <a href="/tasks">Tasks</a>
           </li>
           <li>
             <a href="/settings">Settings</a>

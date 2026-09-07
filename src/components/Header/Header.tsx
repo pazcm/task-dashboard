@@ -4,10 +4,10 @@ function Header() {
   return (
     <header className="header">
       <a href="/" className="logo">
-        Task Dashboard
+        Task Dashboard logo
       </a>
       <div>
-        <span>Hi Marta!</span>
+        <span>Hola Marta!</span>
       </div>
     </header>
   )

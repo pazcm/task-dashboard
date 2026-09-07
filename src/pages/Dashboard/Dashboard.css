@@ -1,0 +1,64 @@
+.dashboard {
+	padding: 1.5rem 0;
+	text-align: left;
+}
+
+.dashboard-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.dashboard-toolbar h2 {
+	margin: 0;
+}
+
+.empty-state {
+	margin-top: 1.5rem;
+	padding: 2rem;
+	border: 1px dashed #b6c2b8;
+	color: #637067;
+	text-align: center;
+}
+
+.task-list {
+	display: grid;
+	gap: 0.75rem;
+	margin: 1.5rem 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.task-item {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem;
+	border: 1px solid #d8e1d9;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.task-item h3 {
+	margin: 0 0 0.25rem;
+	color: #24352a;
+}
+
+.task-item p {
+	color: #637067;
+}
+
+.task-priority {
+	padding: 0.25rem 0.5rem;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: capitalize;
+}
+
+.task-priority-low { background: #e5f1e7; color: #356341; }
+.task-priority-medium { background: #fff1cc; color: #795b16; }
+.task-priority-high { background: #fbe1da; color: #934333; }
+

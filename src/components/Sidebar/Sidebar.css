@@ -1,6 +1,7 @@
 .sidebar {
-  background-color: rgb(125, 240, 107);
+  background-color: rgb(229, 231, 176);
   padding: 1.5rem;
+  height: 100vh;
 }
 
 .sidebar-nav-menu {
