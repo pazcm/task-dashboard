@@ -5,15 +5,18 @@ import type { Task, TaskPriority, TaskStatus } from '../../types/task'
 import './Modal.css'
 
 interface ModalProps {
+  task?: Task
   onClose: () => void
   onSubmit: (task: Omit<Task, 'id'>) => void
 }
 
-function Modal({ onClose, onSubmit }: ModalProps) {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [status, setStatus] = useState<TaskStatus>('todo')
-  const [priority, setPriority] = useState<TaskPriority>('medium')
+function Modal({ task, onClose, onSubmit }: ModalProps) {
+  const [title, setTitle] = useState(task?.title ?? '')
+  const [description, setDescription] = useState(task?.description ?? '')
+  const [status, setStatus] = useState<TaskStatus>(task?.status ?? 'todo')
+  const [priority, setPriority] = useState<TaskPriority>(task?.priority ?? 'medium')
+
+  const isEditing = Boolean(task)
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -33,7 +36,7 @@ function Modal({ onClose, onSubmit }: ModalProps) {
         <div className="modal-header">
           <div>
             <p className="modal-eyebrow">Task details</p>
-            <h2 id="new-task-heading">Create a new task</h2>
+            <h2 id="new-task-heading">{isEditing ? 'Edit task' : 'Create a new task'}</h2>
           </div>
           <button className="modal-close" type="button" aria-label="Close modal" onClick={onClose}>
             x
@@ -83,7 +86,7 @@ function Modal({ onClose, onSubmit }: ModalProps) {
               Cancel
             </button>
             <button className="button-primary" type="submit">
-              Create task
+              {isEditing ? 'Save changes' : 'Create task'}
             </button>
           </div>
         </form>

@@ -8,19 +8,42 @@ import './Dashboard.css'
 function Dashboard() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null)
 
   function handleSubmit(task: Omit<Task, 'id'>) {
-    setTasks((currentTasks) => [
-      ...currentTasks,
-      { id: Date.now(), ...task },
-    ])
+    setTasks((currentTasks) => {
+      if (selectedTask) {
+        return currentTasks.map((currentTask) =>
+          currentTask.id === selectedTask.id
+            ? { ...currentTask, ...task }
+            : currentTask,
+        )
+      }
+
+      return [...currentTasks, { id: Date.now(), ...task }]
+    })
+  }
+
+  function closeModal() {
+    setIsModalOpen(false)
+    setSelectedTask(null)
+  }
+
+  function openCreateModal() {
+    setSelectedTask(null)
+    setIsModalOpen(true)
+  }
+
+  function openEditModal(task: Task) {
+    setSelectedTask(task)
+    setIsModalOpen(true)
   }
 
   return (
     <section className="dashboard" aria-labelledby="tasks-heading">
       <div className="dashboard-toolbar">
         <h2 id="tasks-heading">Filtrar tareas (TBD)</h2>
-        <Button onClick={() => setIsModalOpen(true)} />
+        <Button onClick={openCreateModal} />
       </div>
 
       {tasks.length === 0 ? (
@@ -33,9 +56,14 @@ function Dashboard() {
                 <h3>{task.title}</h3>
                 {task.description && <p>{task.description}</p>}
               </div>
-              <span className={`task-priority task-priority-${task.priority}`}>
-                {task.priority}
-              </span>
+              <div className="task-item-actions">
+                <span className={`task-priority task-priority-${task.priority}`}>
+                  {task.priority}
+                </span>
+                <button className="task-edit-button" type="button" onClick={() => openEditModal(task)}>
+                  Edit
+                </button>
+              </div>
             </li>
           ))}
         </ul>
@@ -43,7 +71,8 @@ function Dashboard() {
 
       {isModalOpen && (
         <Modal
-          onClose={() => setIsModalOpen(false)}
+          task={selectedTask ?? undefined}
+          onClose={closeModal}
           onSubmit={handleSubmit}
         />
       )}
@@ -53,3 +82,4 @@ function Dashboard() {
 
   export default Dashboard
 
+  
