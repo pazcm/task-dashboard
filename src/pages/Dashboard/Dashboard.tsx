@@ -39,6 +39,16 @@ function Dashboard() {
     setIsModalOpen(true)
   }
 
+  function handleDelete(task: Task) {
+    if (!window.confirm(`Do you want to delete "${task.title}"?`)) {
+      return
+    }
+
+    setTasks((currentTasks) =>
+      currentTasks.filter((currentTask) => currentTask.id !== task.id),
+    )
+  }
+
   return (
     <section className="dashboard" aria-labelledby="tasks-heading">
       <div className="dashboard-toolbar">
@@ -62,6 +72,9 @@ function Dashboard() {
                 </span>
                 <button className="task-edit-button" type="button" onClick={() => openEditModal(task)}>
                   Edit
+                </button>
+                <button className="task-delete-button" type="button" onClick={() => handleDelete(task)}>
+                  Delete
                 </button>
               </div>
             </li>
